@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Creature Defeater</title>
+    <script type="module" crossorigin src="/assets/gamepage-C5OtIPEB.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/gamepage-DweaOypn.css">
+  </head>
+  <body>
+    <header>
+      <h1 class="navbar-logo">Creature Defeater</h1>
+      <nav class="navbar">
+        <div class="dropdown">
+          <button class="dropbtn">
+            |||
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="about-us.html">About Us</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div id="game-container-id" class="game-container"></div>
+
+    <div class="username-container">
+      <div id="app"></div>
+      <!-- <p>Username</p>-->
+      <p1 id="name">Username</p1>
+      <br />
+    </div>
+    <div id="app"></div>
+    <script src="script.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.querySelector(".Application");
+        const usernameElement = document.getElementById("name");
+        const storedUsername = localStorage.getItem("username");
+        usernameElement.textContent = storedUsername || "Username";
+        form.addEventListener("submit", function (event) {
+          const nameInput = document.getElementById("name");
+          const validName = document.getElementById("validName");
+          validName.textContent = "";
+          if (!nameInput.value.trim()) {
+            event.preventDefault();
+            validName.textContent = "Please enter your name.";
+          } else {
+            localStorage.setItem("username", nameInput.value);
+            usernameElement.textContent = nameInput.value;
+          }
+        });
+      });
+
+      //code above saves the username
+    </script>
+  </body>
+</html>
